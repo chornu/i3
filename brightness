@@ -1,0 +1,19 @@
+#!/bin/bash
+
+brightness=$(xrandr --verbose | grep -i 'brightness' | awk 'NF>1{print $NF}')
+
+if [[ $1 -eq 1 ]]; then
+	nbrightness=$(echo $brightness+0.05 | bc)
+	if [[ "${brightness}" == "1.0" ]]; then
+		exit;
+	else
+		xrandr --output eDP-1 --brightness "${nbrightness}"
+	fi
+elif [[ $1 -eq 2 ]]; then
+	nbrightness=$(echo $brightness-0.05 | bc)
+	if [[ "${brightness}" == "0.0" ]]; then
+		exit;
+	else
+	xrandr --output eDP-1 --brightness "${nbrightness}"
+	fi
+fi
