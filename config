@@ -210,6 +210,8 @@ bindsym $mod+F11 exec bash ~/.config/i3/brightness 2  # decrease screen brightne
 bindsym $mod+F6 exec /home/limi/toggletouchpad.sh # toggle touchpad
 
 exec_always --no-startup-id feh --bg-scale ~/bg.jpeg
+exec_always --no-startup-id xrandr --dpi 250
+
 exec --no-startup-id chromium-browser 
 exec --no-startup-id Nautilus
 exec --no-startup-id bash
